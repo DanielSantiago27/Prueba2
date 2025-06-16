@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/proyectos.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css">
+
+
+</head>
+<header class="container-fluid d-flex justify-content-center bg-white p-2"> 
+    <form action="/loginCoordinacionIni" method="post" id="cabecera">
+        <button type="submit" class="custom-btn">← Atrás</button>
+        <div class="logoUPT ms-3">
+            <a href="/" class="logo-upt">
+                <img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+            </a>
+        </div>
+    </form>
+</header>
+<body>
+    <div class="container my-4">
+        <h1 class="text-center fw-bold">Proyectos completos</h1>
+    
+        <form action="/verproyectos2" method="post" class="my-4 d-flex justify-content-center">
+            <input type="search" name="busqueda" id="busqueda" class="form-control search-bar" placeholder="Nombre del proyecto">
+            <select name="ciclo" id="ciclo" class="form-select w-auto mx-2">
+                <option value="0">Seleccionar</option>
+                <option value="ESTNC1">Estancia 1</option>
+                <option value="ESTNC2">Estancia 2</option>
+                <option value="ESTD">Estadía</option>
+            </select>
+            <button type="submit" class="btn btn-success">Buscar</button>
+        </form>
+    
+        <div class="row justify-content-center" id="proyectos-container">
+            {{ proyectos | safe }}
+        </div>
+    </div>
+    
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

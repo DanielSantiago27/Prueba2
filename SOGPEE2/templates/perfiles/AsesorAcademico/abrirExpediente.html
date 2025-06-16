@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente Viewer</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/abrirExpediente.css')}}">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="container-fluid d-flex justify-content-center bg-white p-2">
+        <a href="/" class="logo-upt">
+<img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+        </a> 
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Document Preview -->
+        <div class="document-preview">
+            <img src="{{imagen}}" alt="No hay archivo">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <form action="/abrirExpediente-parcial" method="post">
+                <label for="parcial">
+                    <select name="parcial" id="parcial">
+                        <option value="0">Seleccionar</option>
+                        <option value="Parcial1">Parcial 1</option>
+                        <option value="Parcial2">Parcial 2</option>
+                        <option value="Parcial3">Parcial 3</option>
+                    </select><br>
+                </label>
+                <input type="hidden" name="proyecto" value="{{proyecto}}">
+                <input type="hidden" id="nombre" name="nombre" value="{{nombre}}">
+                <input type="hidden" id="ID" name="ID" value="{{ID}}">
+
+                <button class="button button-print">Abrir</button>
+            </form>
+           
+        </div>
+    </main>
+</body>
+</html>

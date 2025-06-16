@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificar Ser</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/calificar_ser.css') }}">
+</head>
+
+<body>
+    <header class="container-fluid d-flex justify-content-center bg-white p-2"> 
+        <form action="/regresarasesoracademico" method="post">
+            <input type="hidden" name ="IDA" value="{{IDA}}">
+
+            <button type="submit" class="custom-btn">← Atrás</button>
+        </form>
+        <div class="logoUPT ms-3">
+            <a href="/" class="logo-upt">
+                <img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+            </a>
+        </div>
+    </header>
+    <div class="container">
+        <form action="/guardarCalificacionSer" method="post">
+            <input type="hidden" name ="ID" value="{{IDA}}">
+
+        <div class="form-container">
+            <!-- Columna izquierda -->
+            <!-- <div class="left-column">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" value="{{nombre}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" value="{{telefono}}" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" value="{{correo}}" disabled> 
+                </div>
+            </div> -->
+
+
+            <!-- Columna derecha -->
+            <div class="right-column">
+                <div class="form-group">
+                        <h1>Calificar Ser</h1>
+                        <h3>{{parcial}}</h3>
+                        <label for="estudiante">Nombre del estudiante:</label>
+                        <select id="estudiante" name="estudiante">
+                            <option value="0">Seleccionar</option>
+                            {{resultado|safe}}">
+                        </select>
+                        <input type="hidden" name="parcial" value="{{parcial}}">
+                        <input type="hidden" name ="proyecto" value="{{proyecto}}">
+                        <input type="hidden" name ="ID" value="{{ID}}">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="evaluation-container" class="evaluation-container">
+            <table class="evaluation-table">
+                <thead>
+                    <tr>
+                        <th>Criterio de Evaluación</th>
+                        <th>Calificación (5-10)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Puntualidad y asistencia</td>
+                        <td>
+                            <select name="puntualidad" id="puntualidad">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Responsabilidad en la veracidad y confiabilidad de la información</td>
+                        <td>
+                            <select name="responsabilidad" id="responsabilidad">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Atención y congruencia en las instrucciones del asesor académico</td>
+                        <td>
+                            <select name="atencion" id="atencion">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ética en la confidencialidad y Objetividad en el desarrollo de la información empresarial
+                        </td>
+                        <td>
+                            <select name="etica" id="etica">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Capacidad, innovación e iniciativa para resolver problemas</td>
+                        <td>
+                            <select name="capacidad" id="capacidad">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Evidencia liderazgo y analiza sus áreas de oportunidad</td>
+                        <td>
+                            <select name="liderazgo" id="liderazgo">
+                                <option value="">Seleccionar</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br><br>
+            <button class="btn btn-calificar">Calificar</button>
+        </div>
+        
+    </div>
+</form>
+</body>
+
+</html>

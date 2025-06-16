@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Asesor</title>
+
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/registrar_asesor.css')}}">
+
+    <script>
+        function showForm(formId, button) {
+            document.querySelectorAll('.form-container').forEach(form => form.classList.remove('active'));
+            document.getElementById(formId).classList.add('active');
+            document.querySelectorAll('.header button').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+        
+        function showError(message) {
+            alert(message);
+            window.location.href = "perfil_coordinacion.html";
+        }
+    </script>
+</head>
+<body>
+
+    <header class="container-fluid d-flex align-items-center p-2 position-relative">
+        <form action="/loginCoordinacionIni" method="post">
+            <button type="submit" class="custom-btn">← Atrás</button>
+        </form>
+        <div class="logoUPT ms-3">
+            <a href="/" class="logo-upt">
+                <img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+            </a>
+        </div>
+    </header>
+    <br>
+
+    <div class="container">
+        <div class="header">
+            <button onclick="showForm('form-asesor-academico', this)" class="active">Asesor Académico</button>
+            <button onclick="showForm('form-asesor-empresarial', this)">Asesor Empresarial</button>
+        </div>
+        
+        <div id="form-asesor-academico" class="form-container active">
+            <h1>Registrar Asesor Académico</h1>
+            <form action="/registrar_academico" method="POST">
+                <div class="form-group">
+                    <label for="nombre1">Primer Nombre:</label>
+                    <input type="text" id="nombre1" name="nombre1" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre2">Segundo Nombre:</label>
+                    <input type="text" id="nombre2" name="nombre2" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellidoP">Apellido Paterno:</label>
+                    <input type="text" id="apellidoP" name="apellidoP" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellidoM">Apellido Materno:</label>
+                    <input type="text" id="apellidoM" name="apellidoM" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono" required>
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <button type="submit" class="submit">Registrar Asesor Académico</button>
+            </form>
+        </div>
+        
+        
+        <div id="form-asesor-empresarial" class="form-container">
+            <h1>Registrar Asesor Empresarial</h1>
+            <form action="/registrar_empresarial" method="POST">
+                <div class="form-group">
+                    <label for="nombre1">Primer Nombre:</label>
+                    <input type="text" id="nombre1" name="nombre1" required>
+                </div>
+                <div class="form-group">
+                    <label for="nombre2">Segundo Nombre:</label>
+                    <input type="text" id="nombre2" name="nombre2">
+                </div>
+                <div class="form-group">
+                    <label for="apellidoP">Apellido Paterno:</label>
+                    <input type="text" id="apellidoP" name="apellidoP" required>
+                </div>
+                <div class="form-group">
+                    <label for="apellidoM">Apellido Materno:</label>
+                    <input type="text" id="apellidoM" name="apellidoM">
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="text" id="telefono" name="telefono">
+                </div>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo" required>
+                </div>
+                <div id="asesor-empresarial" class="form-group">
+                    <label for="asesor-emp-campo1">Empresa:*</label>
+                    <p id="txtmin">Seleccionar</p>
+                    <select name="empresa" id="AsesorEpm" required>
+                        {{ cargar98975 | safe }}
+                    </select>
+                </div>
+            
+                <button type="submit" class="submit">Registrar Asesor Empresarial</button>
+            </form>
+            
+        </div>
+        
+        
+        
+    </div>
+</body>
+</html>

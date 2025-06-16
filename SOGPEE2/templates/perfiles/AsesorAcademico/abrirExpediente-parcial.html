@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente Viewer</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/abrirExpediente.css')}}">
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="container-fluid d-flex justify-content-center bg-white p-2">
+        <form action="/regresarAsesorAcademico" method="post">
+            <input type="hidden" id="ID" name="ID" value="{{ID}}">
+
+            <button type="submit" class="custom-btn">← Atrás</button>
+        <a href="/" class="logo-upt">
+<img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+        </a> 
+        </form>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Document Preview -->
+        <div class="document-preview">
+            <img src="{{imagen}}" alt="No hay archivo">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <form action="/descargarPdf" method="post">
+                <input type="hidden" name="proyecto" value="{{proyecto}}">
+                <input type="hidden" name="parcial" value="{{parcial}}">
+                <button class="button button-print">Descargar</button>
+
+            </form>
+            <form action="/calificarExpedienteParcial" method="post">
+                <button class="button button-grade">Calificar</button>
+                <input type="hidden" name="proyecto" value="{{proyecto}}">
+                <input type="hidden" name="parcial" value="{{parcial}}">
+                <input type="hidden" id="nombre" name="nombre" value="{{nombre}}">
+                <input type="hidden" id="telefono" name="telefono" value="{{telefono}}">
+                <input type="hidden" id="ID" name="ID" value="{{ID}}">
+                
+            </form>
+        </div>
+    </main>
+</body>
+</html>
