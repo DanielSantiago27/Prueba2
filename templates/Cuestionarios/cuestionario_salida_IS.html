@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios de Estancias y Estadía</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/cuestionario_salida2.css') }}">
+</head>
+<body>
+
+
+
+
+
+    <main class="container">
+        {% if procedimiento == 'ESTNC1' %}
+        <form action="/estancia1" method="post">
+            <input type="hidden" name="NombreAsesor" value="{{ NombreAsesor }}">
+            <input type="hidden" name="Giro" value="{{ Giro }}">
+            <input type="hidden" name="carrera" value="Ingenieria en Software">
+            <input type="hidden" name="tipoempresa" value="{{ tipoempresa }}">
+            <input type="hidden" name="procedimiento" value="{{ procedimiento }}">
+            <input type="hidden" name="nombreProyecto" value="{{ nombreProyecto }}">
+            <input type="hidden" name="periodo" value="{{ periodo }}">
+            <input type="hidden" name="nombre_empresa" value="{{ nombre_empresa }}">
+            <input type="hidden" name="grado_estudios" value="{{ grado_estudios }}">
+            <input type="hidden" name="capital" value="{{ capital }}">
+            <input type="hidden" name="anios_operacion" value="{{ anios_operacion }}">
+            <input type="hidden" name="tamanio_empresa" value="{{ tamanio_empresa }}">
+            <input type="hidden" name="mercado_venta" value="{{ mercado_venta }}">
+            <input type="hidden" name="equipo" value="{{ equipo }}">
+                    <section id="estancia1" class="form-section active">
+    
+                <header>
+                    <h1 class="tituloCarrera">Ingeniería en Software</h1>
+                    <h1 class="tituloFormulario" >Formulario de Estancia I</h1> 
+                </header>
+        
+        
+<header>
+    <h1 class="tituloCarrera">Ingeniería en Software</h1>
+    <h1 class="tituloFormulario">Formulario de Estancia II</h1> 
+</header>
+
+<div class="question-container">
+    <div class="question">
+        <h2 class="question-title">¿CUÁLES SON LAS TRES FUNCIONES PRIORITARIAS QUE LLEVÓ A CABO EL ESTUDIANTE
+            DURANTE SU ESTANCIA II?</h2>
+        <div class="options-grid">
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Diseñar software">
+                    Diseñar software
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Diagnóstico de requerimientos">
+                    Diagnóstico de requerimientos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Implementar metodologías de modelado">
+                    Implementar metodologías de modelado
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Optimizar operaciones comerciales internacionales">
+                    Optimizar operaciones comerciales internacionales
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Estructurar datos">
+                    Estructurar datos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Desarrollar interfaces para su validación">
+                    Desarrollar interfaces para su validación
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Aplicar normatividad y estándares">
+                    Aplicar normatividad y estándares
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Representación técnica del software">
+                    Representación técnica del software
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Estructurar diseños de software con base en requerimientos">
+                    Estructurar diseños de software con base en requerimientos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Aplicación de metodologías de diagnostico">
+                    Aplicación de metodologías de diagnóstico
+                </div>
+            </label>
+            <!-- OTRAS FUNCIONES -->
+            <label class="option-item other-option">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="otrasCheckbox" name="funcion-estancia2[]" value="Otras funciones">
+                    <span>Otras:</span>
+                </div>
+                <input type="text" id="otrasInput" name="funcion-estancia2_otros" placeholder="Otras funciones..." disabled>
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT para habilitar campo "Otras" -->
+<script>
+{
+    const otrasCheckbox = document.getElementById("otrasCheckbox");
+    const otrasInput = document.getElementById("otrasInput");
+
+    otrasCheckbox.addEventListener("change", function () {
+        otrasInput.disabled = !this.checked;
+        if (!this.checked) {
+            otrasInput.value = "";
+        }
+    });
+}
+</script>
+
+                
+            </section>
+            <section class="radio-section">
+                <!-- Pregunta 1 -->
+                <div>
+                    <label for="modalidad">MODALIDAD O TIPO DE ESTUDIANTE</label>
+                    <select name="modalidad" id="modalidad" required>
+                        <option value="">Seleccionar</option>
+                        <option value="Estudiante en empresa">Estudiante en empresa</option>
+                        <option value="Estudiante en cursos">Estudiante en cursos</option>
+                        <option value="Estudiante en proyecto con PTC">Estudiante en proyecto con PTC</option>
+                    </select>
+                 
+                </div>
+                <div>
+                    <label for="resolvio_necesidad">¿EL PROYECTO RESOLVIÓ SU NECESIDAD?</label><br>
+                    <input type="radio" name="resolvio_necesidad" value="Si"> Si
+                    <br>
+                    <input type="radio" name="resolvio_necesidad" value="No"> No
+                </div>
+        
+                <!-- Pregunta 2 -->
+                <div>
+                    <label for="interes_participar">LE INTERESARÍA PARTICIPAR EN PROYECTOS DE INVESTIGACIÓN Y DESARROLLO TECNOLÓGICO, ASESORADOS POR LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                    <input type="radio" name="interes_participar" value="Si"> Si
+                    <br>
+                    <input type="radio" name="interes_participar" value="No"> No
+                </div>
+        
+                <!-- Pregunta 3 -->
+                <div>
+                    <label for="investigacion_desarrollo">¿REALIZA INVESTIGACIÓN Y DESARROLLO EN SU EMPRESA?</label><br>
+                    <input type="radio" name="investigacion_desarrollo" value="Si"> Si
+                    <br>
+                    <input type="radio" name="investigacion_desarrollo" value="No"> No
+                </div>
+        
+                <!-- Pregunta 4 -->
+                <div>
+                    <label for="contratar_egresados">¿ESTARÍA USTED DISPUESTO A CONTRATAR A EGRESADOS DE LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                    <input type="radio" name="contratar_egresados" value="Si"> Si
+                    <br>
+                    <input type="radio" name="contratar_egresados" value="No"> No
+                    <br>
+        
+                    <label for="porque_contratar">¿POR QUÉ?</label><br>
+                    <input type="text" id="porque_contratar" name="porque_contratar">
+                </div>
+        
+                
+                <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                    <p class="mb-3">¿APRUEBA LA EDICIÓN ELECTRÓNICA Y/O IMPRESA DE LA VERSIÓN FINAL DEL PROYECTO?<span class="required">*</span></p>
+                    <div class="flex space-x-6">
+                        <label class="radio-label">
+                            <input type="radio" name="Aprueba" value="Si" onclick="toggleComentarios(false)"> Sí
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="Aprueba" value="No" onclick="toggleComentarios(true)"> No
+                        </label>
+                    </div>
+                
+                    <div id="comentariosContainer" class="hidden">
+                        <p class="mt-4">CLÁUSULA ESPECIAL DE LAS CONDICIONES DE EDICIÓN POR PARTE DEL ASESOR EMPRESARIAL (EN CASO DE EXISTIR)</p>
+                        <textarea name="clausula_especial" rows="4" class="w-full p-2 border rounded-lg"></textarea>
+                    </div>
+                </div>
+                
+                <script>
+                    function toggleComentarios(show) {
+                        const container = document.getElementById('comentariosContainer');
+                        container.classList.toggle('hidden', !show);
+                    }
+                </script>
+    
+                <!-- Botón de envío -->
+                <button type="submit" class="buttonSiguiente">Enviar</button>
+            </section>
+        </form>
+    
+        {% elif procedimiento == 'ESTNC2' %}    
+        <form action="/estancia2" method="post">
+            <input type="hidden" name="NombreAsesor" value="{{ NombreAsesor }}">
+            <input type="hidden" name="Giro" value="{{ Giro }}">
+            <input type="hidden" name="carrera" value="Ingenieria en Software">
+            <input type="hidden" name="tipoempresa" value="{{ tipoempresa }}">
+            <input type="hidden" name="procedimiento" value="{{ procedimiento }}">
+            <input type="hidden" name="nombreProyecto" value="{{ nombreProyecto }}">
+            <input type="hidden" name="periodo" value="{{ periodo }}">
+            <input type="hidden" name="nombre_empresa" value="{{ nombre_empresa }}">
+            <input type="hidden" name="grado_estudios" value="{{ grado_estudios }}">
+            <input type="hidden" name="capital" value="{{ capital }}">
+            <input type="hidden" name="anios_operacion" value="{{ anios_operacion }}">
+            <input type="hidden" name="tamanio_empresa" value="{{ tamanio_empresa }}">
+            <input type="hidden" name="mercado_venta" value="{{ mercado_venta }}">
+            <input type="hidden" name="equipo" value="{{ equipo }}">
+
+                <section id="estancia2" class="form-section active">
+    
+<header>
+    <h1 class="tituloCarrera">Ingeniería en Software</h1>
+    <h1 class="tituloFormulario">Formulario de Estancia II</h1> 
+</header>
+
+<div class="question-container">
+    <div class="question">
+        <h2 class="question-title">¿CUÁLES SON LAS TRES FUNCIONES PRIORITARIAS QUE LLEVÓ A CABO EL ESTUDIANTE
+            DURANTE SU ESTANCIA II?</h2>
+        <div class="options-grid">
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Diseñar software">
+                    Diseñar software
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Diagnóstico de requerimientos">
+                    Diagnóstico de requerimientos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Implementar metodologías de modelado">
+                    Implementar metodologías de modelado
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Optimizar operaciones comerciales internacionales">
+                    Optimizar operaciones comerciales internacionales
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Estructurar datos">
+                    Estructurar datos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Desarrollar interfaces para su validación">
+                    Desarrollar interfaces para su validación
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Aplicar normatividad y estándares">
+                    Aplicar normatividad y estándares
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Representación técnica del software">
+                    Representación técnica del software
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Estructurar diseños de software con base en requerimientos">
+                    Estructurar diseños de software con base en requerimientos
+                </div>
+            </label>
+            <label class="option-item">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" name="funcion-estancia2[]" value="Aplicación de metodologías de diagnostico">
+                    Aplicación de metodologías de diagnóstico
+                </div>
+            </label>
+            <!-- OTRAS FUNCIONES -->
+            <label class="option-item other-option">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="otrasCheckbox" name="funcion-estancia2[]" value="Otras funciones">
+                    <span>Otras:</span>
+                </div>
+                <input type="text" id="otrasInput" name="funcion-estancia2_otros" placeholder="Otras funciones..." disabled>
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT para habilitar campo "Otras" -->
+<script>
+{
+    const otrasCheckbox = document.getElementById("otrasCheckbox");
+    const otrasInput = document.getElementById("otrasInput");
+
+    otrasCheckbox.addEventListener("change", function () {
+        otrasInput.disabled = !this.checked;
+        if (!this.checked) {
+            otrasInput.value = "";
+        }
+    });
+}
+</script>
+
+        <section class="radio-section">
+            <!-- Pregunta 1 -->
+            <div>
+                <label for="modalidad">MODALIDAD O TIPO DE ESTUDIANTE</label>
+                <select name="modalidad" id="modalidad" required>
+                    <option value="">Seleccionar</option>
+                    <option value="Estudiante en empresa">Estudiante en empresa</option>
+                    <option value="Estudiante en cursos">Estudiante en cursos</option>
+                    <option value="Estudiante en proyecto con PTC">Estudiante en proyecto con PTC</option>
+                </select>
+             
+            </div>
+            <div>
+                <label for="resolvio_necesidad">¿EL PROYECTO RESOLVIÓ SU NECESIDAD?</label><br>
+                <input type="radio" name="resolvio_necesidad" value="Si"> Si
+                <br>
+                <input type="radio" name="resolvio_necesidad" value="No"> No
+            </div>
+    
+            <!-- Pregunta 2 -->
+            <div>
+                <label for="interes_participar">LE INTERESARÍA PARTICIPAR EN PROYECTOS DE INVESTIGACIÓN Y DESARROLLO TECNOLÓGICO, ASESORADOS POR LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                <input type="radio" name="interes_participar" value="Si"> Si
+                <br>
+                <input type="radio" name="interes_participar" value="No"> No
+            </div>
+    
+            <!-- Pregunta 3 -->
+            <div>
+                <label for="investigacion_desarrollo">¿REALIZA INVESTIGACIÓN Y DESARROLLO EN SU EMPRESA?</label><br>
+                <input type="radio" name="investigacion_desarrollo" value="Si"> Si
+                <br>
+                <input type="radio" name="investigacion_desarrollo" value="No"> No
+            </div>
+    
+            <!-- Pregunta 4 -->
+            <div>
+                <label for="contratar_egresados">¿ESTARÍA USTED DISPUESTO A CONTRATAR A EGRESADOS DE LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                <input type="radio" name="contratar_egresados" value="Si"> Si
+                <br>
+                <input type="radio" name="contratar_egresados" value="No"> No
+                <br>
+    
+                <label for="porque_contratar">¿POR QUÉ?</label><br>
+                <input type="text" id="porque_contratar" name="porque_contratar">
+            </div>
+     
+            <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                <p class="mb-3">¿APRUEBA LA EDICIÓN ELECTRÓNICA Y/O IMPRESA DE LA VERSIÓN FINAL DEL PROYECTO?<span class="required">*</span></p>
+                <div class="flex space-x-6">
+                    <label class="radio-label">
+                        <input type="radio" name="Aprueba" value="Si" onclick="toggleComentarios(false)"> Sí
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="Aprueba" value="No" onclick="toggleComentarios(true)"> No
+                    </label>
+                </div>
+            
+                <div id="comentariosContainer" class="hidden">
+                    <p class="mt-4">CLÁUSULA ESPECIAL DE LAS CONDICIONES DE EDICIÓN POR PARTE DEL ASESOR EMPRESARIAL (EN CASO DE EXISTIR)</p>
+                    <textarea name="clausula_especial" rows="4" class="w-full p-2 border rounded-lg"></textarea>
+                </div>
+            </div>
+            
+            <script>
+                function toggleComentarios(show) {
+                    const container = document.getElementById('comentariosContainer');
+                    container.classList.toggle('hidden', !show);
+                }
+            </script>
+
+            <!-- Botón de envío -->
+            <button type="submit" class="buttonSiguiente">Enviar</button>
+        </section>
+        </form>
+        
+        {% elif procedimiento == 'ESTD' %}
+        <form action="/estadia" method="post">
+            <input type="hidden" name="NombreAsesor" value="{{ NombreAsesor }}">
+            <input type="hidden" name="Giro" value="{{ Giro }}">
+            <input type="hidden" name="carrera" value="Ingenieria en Software">
+            <input type="hidden" name="tipoempresa" value="{{ tipoempresa }}">
+            <input type="hidden" name="procedimiento" value="{{ procedimiento }}">
+            <input type="hidden" name="nombreProyecto" value="{{ nombreProyecto }}">
+            <input type="hidden" name="periodo" value="{{ periodo }}">
+            <input type="hidden" name="nombre_empresa" value="{{ nombre_empresa }}">
+            <input type="hidden" name="grado_estudios" value="{{ grado_estudios }}">
+            <input type="hidden" name="capital" value="{{ capital }}">
+            <input type="hidden" name="anios_operacion" value="{{ anios_operacion }}">
+            <input type="hidden" name="tamanio_empresa" value="{{ tamanio_empresa }}">
+            <input type="hidden" name="mercado_venta" value="{{ mercado_venta }}">
+            <input type="hidden" name="equipo" value="{{ equipo }}">
+            
+    <section id="estadia" class="form-section active">
+            
+            <header>
+                <h1 class="tituloCarrera">Ingeniería en Software</h1>
+                <h1 class="tituloFormulario" >Formulario de Estadía</h1> 
+            </header>
+    
+            <div class="question-container">
+                <div class="question">
+                    <h2 class="question-title">¿CUÁLES SON LAS TRES FUNCIONES PRIORITARIAS QUE LLEVÓ A CABO EL ESTUDIANTE
+                        DURANTE SU ESTADÍA?</h2>
+                    <div class="options-grid">
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Dirigir proyectos de software">
+                                Dirigir proyectos de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Gestionar proyectos de software">
+                                Gestionar proyectos de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Aplicación de la metodología de gestión de proyectos">
+                                Aplicación de la metodología de gestión de proyectos
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Determinar herramientas administrativas y financieras">
+                                Determinar herramientas administrativas y financieras
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Coordinar el plan de pruebas de software">
+                                Coordinar el plan de pruebas de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Ejecución de pruebas de software">
+                                Ejecución de pruebas de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Planes de mercadotecnia internacional">
+                                Planes de mercadotecnia internacional
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Aplicación de estandares para aseguramiento de calidad de software">
+                                Aplicación de estandares para aseguramiento de calidad de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Planear y coordinar mantenimiento de software">
+                                Planear y coordinar mantenimiento de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Uso de metodologías de mantenimiento de software">
+                                Uso de metodologías de mantenimiento de software
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Implementar ingeniería inversa y reingeniería">
+                                Implementar ingeniería inversa y reingeniería
+                            </div>
+                        </label>
+                        <label class="option-item">
+                            <div class="checkbox-wrapper">
+                                <input type="checkbox" name="funcion-estadia[]" value="Aplicación de estándares y normatividad aplicación y mejora del software">
+                                Aplicación de estándares y normatividad aplicación y mejora del software
+                            </div>
+                        </label>
+                        <label class="option-item other-option">
+                <div class="checkbox-wrapper">
+                    <input type="checkbox" id="otrasCheckbox" name="funcion-estancia2[]" value="Otras funciones">
+                    <span>Otras:</span>
+                </div>
+                <input type="text" id="otrasInput" name="funcion-estancia2_otros" placeholder="Otras funciones..." disabled>
+            </label>
+        </div>
+    </div>
+</div>
+
+<!-- SCRIPT para habilitar campo "Otras" -->
+    <script>
+        const otrasCheckbox = document.getElementById("otrasCheckbox");
+        const otrasInput = document.getElementById("otrasInput");
+
+        otrasCheckbox.addEventListener("change", function () {
+        otrasInput.disabled = !this.checked;
+        if (!this.checked) {
+            otrasInput.value = "";
+        }
+        });
+        </script>
+            
+            
+            <section class="radio-section">
+                <!-- Pregunta 1 -->
+                <div>
+                    <label for="modalidad">MODALIDAD O TIPO DE ESTUDIANTE</label>
+                    <select name="modalidad" id="modalidad">
+                        <option value="">Seleccionar</option>
+                        <option value="Estudiante en empresa">Estudiante en empresa</option>
+                        <option value="Estudiante en cursos">Estudiante en cursos</option>
+                        <option value="Estudiante en proyecto con PTC">Estudiante en proyecto con PTC</option>
+                        <option value="Estudiante impartiendo cursos">Estudiante impartiendo cursos</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="resolvio_necesidad">¿EL PROYECTO RESOLVIÓ SU NECESIDAD?</label><br>
+                    <input type="radio" name="resolvio_necesidad" value="Si"> Si
+                    <br>
+                    <input type="radio" name="resolvio_necesidad" value="No"> No
+                </div>
+        
+                <!-- Pregunta 2 -->
+                <div>
+                    <label for="interes_participar">LE INTERESARÍA PARTICIPAR EN PROYECTOS DE INVESTIGACIÓN Y DESARROLLO TECNOLÓGICO, ASESORADOS POR LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                    <input type="radio" name="interes_participar" value="Si"> Si
+                    <br>
+                    <input type="radio" name="interes_participar" value="No"> No
+                </div>
+        
+                <!-- Pregunta 3 -->
+                <div>
+                    <label for="investigacion_desarrollo">¿REALIZA INVESTIGACIÓN Y DESARROLLO EN SU EMPRESA?</label><br>
+                    <input type="radio" name="investigacion_desarrollo" value="Si"> Si
+                    <br>
+                    <input type="radio" name="investigacion_desarrollo" value="No"> No
+                </div>
+        
+                <!-- Pregunta 4 -->
+                <div>
+                    <label for="contratar_egresados">¿ESTARÍA USTED DISPUESTO A CONTRATAR A EGRESADOS DE LA UNIVERSIDAD POLITÉCNICA DE TECÁMAC?</label><br>
+                    <input type="radio" name="contratar_egresados" value="Si"> Si
+                    <br>
+                    <input type="radio" name="contratar_egresados" value="No"> No
+                    <br>
+        
+                    <label for="porque_contratar">¿POR QUÉ?</label><br>
+                    <input type="text" id="porque_contratar" name="porque_contratar">
+                </div>
+        
+
+                
+                <div class="mt-6 p-4 bg-gray-100 rounded-lg">
+                    <p class="mb-3">¿APRUEBA LA EDICIÓN ELECTRÓNICA Y/O IMPRESA DE LA VERSIÓN FINAL DEL PROYECTO?<span class="required">*</span></p>
+                    <div class="flex space-x-6">
+                        <label class="radio-label">
+                            <input type="radio" name="Aprueba" value="Si" onclick="toggleComentarios(false)"> Sí
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="Aprueba" value="No" onclick="toggleComentarios(true)"> No
+                        </label>
+                    </div>
+                
+                    <div id="comentariosContainer" class="hidden">
+                        <p class="mt-4">CLÁUSULA ESPECIAL DE LAS CONDICIONES DE EDICIÓN POR PARTE DEL ASESOR EMPRESARIAL (EN CASO DE EXISTIR)</p>
+                        <textarea name="clausula_especial" rows="4" class="w-full p-2 border rounded-lg"></textarea>
+                    </div>
+                </div>
+                
+                <script>
+                    function toggleComentarios(show) {
+                        const container = document.getElementById('comentariosContainer');
+                        container.classList.toggle('hidden', !show);
+                    }
+                </script>
+    
+                <!-- Botón de envío -->
+                <button type="submit" class="buttonSiguiente">Enviar</button>
+            </form>
+        </section>
+        
+        {% endif %}
+    
+       
+    </main>
+    
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+    // Seleccionar los checkboxes por los nuevos nombres con corchetes [] para los arrays
+    const checkboxes = document.querySelectorAll('input[name="funcion-estancia1[]"], input[name="funcion-estancia2[]"], input[name="funcion-estadia[]"]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+            // Filtrar las opciones seleccionadas para obtener solo las que están marcadas
+            const selectedOptions = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+
+            // Validar que no se seleccionen más de 3 funciones
+            if (selectedOptions.length > 3) {
+                this.checked = false; // Desmarcar el checkbox actual
+                alert("Solo puedes seleccionar hasta 3 funciones.");
+                return;
+            }
+
+            console.log("Funciones seleccionadas:", selectedOptions);
+        });
+    });
+});
+
+    // }
+</script>
+</body>
+</html>

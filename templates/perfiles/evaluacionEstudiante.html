@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario UPT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/evaluacionEstudiante.css') }}">
+</head>
+<body>
+    
+    <header class="container-fluid d-flex align-items-center p-2 position-relative">
+        <form action="/loginEstudiante2 " method="get">
+            <button type="submit" class="custom-btn">← Atrás</button>
+        </form>
+        <div class="logoUPT ms-3">
+            <a href="/" class="logo-upt">
+                <img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+            </a>
+        </div>
+    </header>
+    <br>
+    
+    
+    
+    
+
+<div class="container">
+
+        <div class="divider"></div>
+
+        <div>
+                
+    
+                <!-- Columna derecha -->
+                <div class="right-column">
+                    <div class="form-group">
+                        <label for="titulo" id="subtitulo">Título del proyecto</label>
+                        <label for="titulo2">{{proyecto}}</label>
+                        <label for="Folio" id="subtitulo">Folio</label>
+                        <label for="">{{folio}}</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="asesor" id="subtitulo">Asesor empresarial</label>
+                        <label for="asesor2">{{asesor}}</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="parcial">Selecciona parcial</label>
+                        <select id="parcial" name="parcial" required>
+                            <option value="">...Seleccionar...</option>
+                            <option value="Parcial 1">Parcial 1</option>
+                            <option value="Parcial 2">Parcial 2</option>
+                            <option value="Parcial 3">Parcial 3</option>
+                        </select>
+                    </div>
+                    
+                    
+                  
+                    
+                    
+                    
+    
+                    <h3 class="section-title">Enviar Cartas</h3>
+                    <div>
+                        <form id="form-cartas" action="/enviarDocumentos" method="POST" enctype="multipart/form-data">
+                            <label for="file-cartas" class="btn btn-cartas">Enviar Cartas
+                                <div class="loading-bar" id="loading-bar"></div>
+                            </label>
+                            <input type="file" name="cartas" id="file-cartas" class="file-input" accept=".pdf" onchange="submitForm('form-cartas')">
+                            <input type="hidden" name="parcialR" id="resultado" value="">
+                            <input type="hidden" id="nombre" name="nombre" value="{{Nombre1}}{{Nombre2}}">
+                            <input type="hidden" id="matricula" name="matricula" value="{{Matricula}}">
+                            <input type="hidden" id="correo" name="correo" value="{{Correo}}">
+                            <input type="hidden" value="{{proyecto}}" name="proyectoR">
+                            <input type="hidden" value="{{validar}}" name="validar">
+
+
+                        </form>
+                        </div>
+                        <h3 class="section-title">Enviar Proyecto</h3>
+                        <div>
+                            <form id="form-proyecto" action="/enviarDocumentos" method="POST" enctype="multipart/form-data">
+                                <label for="file-proyecto" class="btn btn-proyecto">Enviar Proyecto
+                                    <div class="loading-barProyecto" id="loading-barProyecto"></div>
+                                </label>
+                                <input type="file" name="proyecto" id="file-proyecto" class="file-input" accept=".pdf" onchange="submitForm('form-proyecto')">
+                                <input type="hidden" name="parcialR" id="parcialproyecto" value="">
+                                <input type="hidden" id="nombre" name="nombre" value="{{Nombre1}}{{Nombre2}}">
+                                <input type="hidden" id="matricula" name="matricula" value="{{Matricula}}">
+                                <input type="hidden" id="correo" name="correo" value="{{Correo}}">
+                                <input type="hidden" value="{{proyecto}}" name="proyectoR">
+                                <input type="hidden" value="{{validar}}" name="validar">
+    
+                            </form>
+                            
+                            
+                         <br>   
+                        <hr>
+                        </div>
+                        <div>
+                            <form id="form-evaluacion" action="/abrirCalificaciones" method="POST">
+                            <h3 class="section-title">Revisar calificaciones</h3>
+                            <input type="hidden" id="matricula" name="matricula" value="{{Matricula}}">
+                            <input type="hidden" id="correo" name="correo" value="{{Correo}}">
+                            <input type="hidden" value="{{proyecto}}" name="proyectoR">
+                            <input type="hidden" value="{{validar}}" name="validar">
+                            <button class="btn-calificaciones" name="accion" value="Abrir">Abrir</button>
+
+                        </form>
+                    </div>
+                    
+                    <div>
+                        <form id="form-evaluacion"  action="/encuestaSatisfaccion" method="post">
+                            <h3 class="section-title">Encuesta de satisfacción</h3>
+                            <input type="hidden" name="Matricula" value="{{Matricula}}">
+                            <input type="hidden" id="correo" name="correo" value="{{Correo}}">
+                            <button class="btn-evaluar" name="accion" value="evaluar">Evaluar</button>
+                            
+                        </form>
+                    </div>
+    
+                </div>
+            
+            
+            
+        </div>
+    </div>
+</div>
+
+<script>
+    const fileInput = document.getElementById("file-cartas");
+    const fileInput03 = document.getElementById("file-evaluacion");
+    const fileInputProyecto = document.getElementById("file-proyecto");
+    const loadingBar = document.getElementById("loading-bar");
+    const loadingBar03 = document.getElementById("loading-bar03");
+    const loadingBarProyecto = document.getElementById("loading-barProyecto");
+    const button = document.querySelector(".btn-cartas");
+    const button03 = document.querySelector(".btn-evaluacion");
+    const buttonProyecto = document.querySelector(".btn-proyecto");
+
+
+
+
+    const selectElement = document.getElementById('parcial');
+    const resultadoSpan = document.getElementById('resultado');
+    const resultadoSpan3 = document.getElementById('parcialproyecto');
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpan.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado3 = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpan3.value = textoSeleccionado3 !== "--Selecciona una opción--" ? textoSeleccionado3 : "Ninguno";
+        });
+</script>
+
+<script>
+    function submitForm(formId) {
+        // Evitar enviar varios formularios a la vez
+        const form = document.getElementById(formId);
+        if (form) {
+            form.submit();
+        }
+    }
+</script>
+
+</body>
+</html>

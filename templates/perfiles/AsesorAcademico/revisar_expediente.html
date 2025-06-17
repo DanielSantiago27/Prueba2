@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisar</title>
+   
+      <!-- Bootstrap CSS v5.2.1 -->
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+  />
+
+   <!-- Style CSS -->
+   <link rel="stylesheet" href="{{
+      url_for('static',
+      filename='css/revisar_expediente.css')
+   }}">
+
+
+    <link rel="stylesheet" href="{{url_for('static',filename='css/revisar_expediente.css')}}">
+</head>
+<body>
+
+    <header class="container-fluid d-flex justify-content-center bg-white p-2"> 
+        <form action="/loginAsesorAcademico2" method="get">
+            <button type="submit" class="custom-btn">← Atrás</button>
+        </form>
+        <div class="logoUPT ms-3">
+            <a href="/" class="logo-upt">
+                <img src="../static/img/logo_upt.png" alt="Logo UPT" height="125">
+            </a>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="form-container d-flex justify-content-center align-items-center row">
+                <h1>Proyectos</h1>
+                   <form action="/AgregarProyectoDesdeAsesor" method="post">
+                    <button class="btn btn-calificar">Agregar</button>
+                    <input type="hidden" id="nombre" name="nombre" value="{{nombre}} {{nombre2}} {{apellidoP}} {{apellidoM}}">
+                    
+                    <input type="hidden" name="ID" id="ID" value="{{ID}}">
+
+
+
+                </form>
+                <h1>Revisar expediente</h1>
+                <label for="titulo">Nombre del proyecto:</label>
+                <select id="titulo" name="titulo" required>
+                    <option value="0">Seleccionar un proyecto</option>
+                    {{resultado | safe}}
+                </select>
+                
+                <div class="dropdown">
+                    <button class="btn btn-evaluar">Ver archivo</button>
+                    <div class="dropdown-content">
+                        <form action="/verArchivo" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 1">
+                            <input type="hidden" name="proyecto" id="proyecto" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 1</button>
+                        </form>
+                        <form action="/verArchivo" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 2">
+                            <input type="hidden" name="proyecto" id="proyectoP2" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 2</button>
+                        </form>
+                        <form action="/verArchivo" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 3">
+                            <input type="hidden" name="proyecto" id="proyectoP3" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 3</button>
+                        </form>
+                    </div>
+                </div>
+                <form action="/calificarExpediente" method="post">
+                    <button class="btn btn-calificar">Calificar expediente</button>
+                    <input type="hidden" name="proyectoC" id="proyectoC" value="">
+                    <input type="hidden" id="nombre" name="nombre" value="{{Nombre1}} {{Nombre2}} {{ApellidoP}} {{ApellidoM}}">
+                    <input type="hidden" id="telefono" name="telefono" value="{{Telefono}}">
+                    <input type="hidden" id="correo" name="correo" value="{{Correo}}">
+                    <input type="hidden" name="ID" id="ID" value="{{ID}}">
+
+
+
+                </form>
+                <div class="dropdown">
+                    <button class="btn btn-Ser">Calificar Ser</button>
+                    <div class="dropdown-content">
+                        <form action="/calificarSer" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 1">
+                            <input type="hidden" name="proyecto" id="proyectoSer1" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 1</button>
+                        </form>
+                        <form action="/calificarSer" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 2">
+                            <input type="hidden" name="proyecto" id="proyectoSer2" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 2</button>
+                        </form>
+                        <form action="/calificarSer" method="POST">
+                            <input type="hidden" name="parcial" value="Parcial 3">
+                            <input type="hidden" name="proyecto" id="proyectoSer3" value="">
+                            <input type="hidden" name="ID" id="ID" value="{{ID}}">
+                            <button type="submit" id="botonParciales">Parcial 3</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    
+    <script>
+    const selectElement = document.getElementById('titulo');
+    const resultadoSpan = document.getElementById('proyecto');
+    const resultadoSpanC = document.getElementById('proyectoC');
+    const resultadoSpanP2 = document.getElementById('proyectoP2');
+    const resultadoSpanP3 = document.getElementById('proyectoP3');
+    const resultadoSpanS1 = document.getElementById('proyectoSer1');
+    const resultadoSpanS2 = document.getElementById('proyectoSer2');
+    const resultadoSpanS3 = document.getElementById('proyectoSer3');
+ 
+    
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpan.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanS1.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+        selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanS2.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+        selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanS3.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanP2.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanP3.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+
+    selectElement.addEventListener('change', function() {
+    const textoSeleccionado = selectElement.options[selectElement.selectedIndex].value;
+    resultadoSpanC.value = textoSeleccionado !== "--Selecciona una opción--" ? textoSeleccionado : "Ninguno";
+        });
+
+    
+   
+    </script>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"
+    ></script>
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"
+    ></script>
+</body>
+</html>
