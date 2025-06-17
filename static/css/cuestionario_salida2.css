@@ -1,0 +1,272 @@
+.custom-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px; /* Tamaño más compacto */
+    width: auto; /* Que no ocupe todo el ancho */
+    border-radius: 15px 15px 15px 15px; /* Esquina superior izquierda redondeada */
+    background-color:#800000 ; /* Azul bootstrap */
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .custom-btn:hover {
+    background-color: #900000;
+    transform: scale(1.05);
+  }
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #8a2036;
+    padding: 2.5vw;
+    text-align: left;
+    border-radius: 5px;
+    margin-bottom: 2vw;
+}
+    
+.tituloCarrera{
+    color: white;
+    font-size: 5vh;
+    font-weight: bold;
+}
+
+.tituloFormulario{
+    color: white;
+    font-size: 3vh;
+    font-weight: bold;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #fa5604;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background-color: #cbf6c8;
+}
+
+
+h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    display: none;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.form-section.active {
+    display: block;
+}
+
+.question-container {
+    margin: 20px 0;
+}
+
+.question-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.option-item {
+    background: #e9ecef;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.option-item:hover {
+    background: #dfe4ea;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="checkbox"], input[type="radio"] {
+    transform: scale(1.2);
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+
+label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Contenedor principal */
+main.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la sección */
+section {
+    margin-bottom: 20px;
+}
+
+section h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+
+/* Estilos para los inputs */
+label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: #444;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+/* Botones radio */
+div input[type="radio"] {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+div label {
+    margin-top: 10px;
+    display: block;
+}
+
+/* Estilo para preguntas */
+div > div {
+    margin-bottom: 20px;
+}
+
+/* Colores */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    main.container {
+        padding: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+        font-size: 16px;
+    }
+
+    section h1 {
+        font-size: 20px;
+    }
+}
+
+.buttonSiguiente{
+    background-color: #8a2036;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1vw;
+}
+
+.buttonSiguiente:hover {
+    
+    background-color: #5c0f1f;
+}
+
+.radio-section{
+    padding: 20px;
+    border-radius: 8px;
+    
+}
+
+#modalidad {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}

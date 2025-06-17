@@ -1,0 +1,193 @@
+.custom-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px; /* Tamaño más compacto */
+    width: auto; /* Que no ocupe todo el ancho */
+    border-radius: 15px 15px 15px 15px; /* Esquina superior izquierda redondeada */
+    background-color:#800000 !important;  
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .custom-btn:hover {
+    background-color: #900000;
+    transform: scale(1.05);
+  }
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e9ecef;
+    margin: 0;
+
+}
+
+header {
+    background-color: white;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2vw;
+
+}
+#botonParciales{
+    border: none;
+    background: transparent;
+    width: 100%;
+    padding: 0;
+}
+.container {
+    background-color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 20px;
+}
+
+.divider {
+    background-color: #dee2e6;
+    height: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.btn-calificar {
+    background-color: #7bbf46;
+    width: 100%;
+}
+
+.btn-evaluar {
+    background-color: #fa5604;
+    width: 100%;
+    
+}
+
+.dropdown-content {
+    width: 100%;
+}
+
+.btn-evaluar:hover {
+    background-color: #d14702;
+    color: white;
+}
+.btn-calificar:hover {
+    background-color: #649b3a;
+    color: white
+}
+
+.btn-Ser {
+    background-color: #5271ff;
+    width: 100%;
+}
+.btn-Ser:hover {
+    background-color: #4059ca;
+    color: white;
+}
+
+.contenedorBotones {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    z-index: 1;
+}
+
+.dropdown-content form {
+    margin: 5px 0;
+    width: 100%;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#botonParciales:hover{
+    background: #d4d4d4;
+}
+
+.custom-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 8px 15px; /* Tamaño más compacto */
+    width: auto; /* Que no ocupe todo el ancho */
+    border-radius: 15px 15px 15px 15px; /* Esquina superior izquierda redondeada */
+    background-color: #007bff; /* Azul bootstrap */
+    color: white;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .custom-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
