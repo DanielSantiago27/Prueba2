@@ -5,3 +5,5 @@ PyMuPDF
 Pillow
 Flask-SQLAlchemy
 Flask-Migrate
+gunicorn
+
